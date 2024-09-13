@@ -1,6 +1,7 @@
 {
   "canisters": {
     "random-art-generator-backend": {
+      "wasm": "target/wasm32-unknown-unknown/release/random_art_generator_backend.wasm",
       "candid": "src/random-art-generator-backend/random-art-generator-backend.did",
       "package": "random-art-generator-backend",
       "type": "rust"
