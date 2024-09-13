@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "random-art-generator-backend": {
+      "candid": "src/random-art-generator-backend/random-art-generator-backend.did",
+      "package": "random-art-generator-backend",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

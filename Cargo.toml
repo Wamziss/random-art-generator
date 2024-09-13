@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/random-art-generator-backend"
+]
+resolver = "2"
