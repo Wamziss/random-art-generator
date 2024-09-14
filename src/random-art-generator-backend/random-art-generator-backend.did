@@ -1,0 +1,15 @@
+type ArtPiece = record {
+  id : nat64;
+  creator : principal;
+  quantum_state : QuantumState;
+  timestamp : nat64;
+};
+type QuantumState = record {
+  entanglement : vec nat64;
+  superposition : vec float64;
+};
+service : {
+  generate_art : () -> (nat64);
+  get_all_art : () -> (vec ArtPiece) query;
+  get_art : (nat64) -> (opt ArtPiece) query;
+}

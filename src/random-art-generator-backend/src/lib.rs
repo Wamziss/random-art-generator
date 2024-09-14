@@ -8,7 +8,6 @@ use ic_cdk::api::call::call_with_payment;
 use candid::Principal;
 use std::cell::RefCell;
 use std::collections::HashMap;
-use ic_cdk_macros::*;
 
 #[derive(Clone, Debug, CandidType, Deserialize)]
 struct QuantumState {
@@ -108,24 +107,17 @@ async fn create_quantum_state() -> QuantumState {
     }
 }
 
-// // Required by the IC to create a canister
+ic_cdk::export_candid!();
+
 // #[query(name = "__get_candid_interface_tmp_hack")]
 // fn export_candid() -> String {
-//     candid::export_service!();
+//     // candid::export_service!();
 //     __export_service()
 // }
 
-// // Candid interface
 // candid::export_service!();
 
-#[query(name = "__get_candid_interface_tmp_hack")]
-fn export_candid() -> String {
-    __export_service()
-}
-
-candid::export_service!();
-
-#[ic_cdk_macros::init]
-fn init() {
-    // Any initialization code can go here
-}
+// #[ic_cdk_macros::init]
+// fn init() {
+//     // Any initialization code can go here
+// }
