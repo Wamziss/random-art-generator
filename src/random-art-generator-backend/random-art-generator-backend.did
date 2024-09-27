@@ -1,3 +1,4 @@
+type ArtMetadata = record { next_id : nat64; total_pieces : nat64 };
 type ArtPiece = record {
   id : nat64;
   creator : principal;
@@ -8,8 +9,14 @@ type QuantumState = record {
   entanglement : vec nat64;
   superposition : vec float64;
 };
+type Result = variant { Ok; Err : text };
+type Result_1 = variant { Ok : nat64; Err : text };
+type Result_2 = variant { Ok : ArtPiece; Err : text };
 service : {
-  generate_art : () -> (nat64);
+  delete_art : (nat64) -> (Result);
+  generate_art : () -> (Result_1);
   get_all_art : () -> (vec ArtPiece) query;
-  get_art : (nat64) -> (opt ArtPiece) query;
+  get_art : (nat64) -> (Result_2) query;
+  get_metadata : () -> (ArtMetadata) query;
+  transfer_ownership : (nat64, principal) -> (Result);
 }
